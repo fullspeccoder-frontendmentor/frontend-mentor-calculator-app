@@ -1,38 +1,121 @@
 .App {
   text-align: center;
+  color: var(--display-text);
+  background-color: var(--main-background);
+  min-width: 375px;
+  padding: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.9rem;
 }
 
-.App-link {
-  color: #61dafb;
+.ThemeToggler {
+  display: flex;
+  gap: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ThemeToggler > span {
+  align-self: end;
+  letter-spacing: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.theme-numbers {
+  width: 50px;
+}
+
+.theme-numbers > span {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50px;
+}
+
+.theme-numbers > span span:hover {
+  color: var(--number-key-background);
+  cursor: pointer;
+}
+
+.slider {
+  width: 100%;
+  height: 20px;
+  background-color: var(--toggle-key-background);
+  border-radius: 15px;
+  position: relative;
+}
+
+.slider-btn {
+  display: block;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: var(--equal-key-background);
+  position: absolute;
+  top: 3px;
+  left: var(--theme-num);
+  transition: left 0.25s;
+}
+
+.DisplayArea {
+  margin: 1rem 0;
+  padding: 1rem 0.8rem;
+  background-color: var(--screen-background);
+  border-radius: 10px;
+  text-align: end;
+}
+
+.Keys {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--toggle-key-background);
+  border-radius: 10px;
+}
+
+.Keys button {
+  font-size: 3rem;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--number-key-background);
+  color: var(--number-text);
+  box-shadow: 0px 5px 0px 0px var(--number-key-shadow);
+  cursor: pointer;
+}
+
+.Keys button:hover {
+  background-color: var(--number-key-shadow);
+}
+
+.Keys button:last-of-type,
+.Keys button:nth-of-type(17) {
+  grid-column: span 2;
+}
+
+.Keys button:nth-of-type(17),
+.Keys button:nth-of-type(4) {
+  font-size: 1.5rem;
+  background-color: var(--del-key-background);
+  box-shadow: 0px 5px 0px 0px var(--del-key-shadow);
+  color: #fff;
+}
+
+.Keys button:nth-of-type(17):hover,
+.Keys button:nth-of-type(4):hover {
+  background-color: var(--del-key-shadow);
+}
+
+.Keys button:last-of-type {
+  background-color: var(--equal-key-background);
+  box-shadow: 0px 5px 0px 0px var(--equal-key-shadow);
+  color: #fff;
+}
+
+.Keys button:last-of-type:hover {
+  background-color: var(--equal-key-shadow);
 }
